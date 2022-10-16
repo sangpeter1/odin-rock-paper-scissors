@@ -93,7 +93,7 @@ function playRound(playerSelection, computerSelection) {
 
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
     const record = document.createElement("div");
-    reocrd.textContent ="You Win! Scissors beats Paper";
+    record.textContent ="You Win! Scissors beats Paper";
     container.appendChild(record);  
     playerScore++
 
