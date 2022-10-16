@@ -1,3 +1,39 @@
+const buttons = document.querySelectorAll('button');
+
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.id;
+        const player = document.createElement('div');
+        player.textContent = "You picked " + playerSelection;
+        container.appendChild(player);
+
+        let computerSelection = getComputerChoice();
+        const computer = document.createElement('div');
+        computer.textContent = "Computer picked " + computerSelection;
+        container.appendChild(computer);
+
+        playRound(playerSelection, computerSelection);
+        const score = document.createElement('div');
+        score.textContent = "Your score: " + playerScore + " Computer Score: " + computerScore;
+        container.appendChild(score);        
+        if (playerScore === 5) {
+            computerScore = 0;
+            playerScore = 0;
+            const winner = document.createElement ('div')
+            winner.textContent = "Congrats! You beat the Computer!";
+            container.appendChild(winner);
+        } else if (computerScore === 5) {
+            computerScore = 0;
+            playerScore = 0;
+            const winner = document.createElement ('div')
+            winner.textContent = "Game over! The Computer beat you!";
+            container.appendChild(winner);
+        }   
+        
+    });
+});
+    
 
 
 function getComputerChoice() {
@@ -7,54 +43,70 @@ function getComputerChoice() {
     else return "paper"
 }
  
-console.log(getComputerChoice())
-
-const computerSelection = getComputerChoice()
 
 let playerScore = 0
 let computerScore = 0
 
-
-
 function playRound(playerSelection, computerSelection) {
+
+
     if (playerSelection === "rock" && computerSelection === "rock") {
-    console.log ("You Tie! You both pick Rock")  
+    const record = document.createElement('div');
+    record.textContent = 'You Tie! You both pick Rock';
+    container.appendChild(record);  
 
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-    console.log ("You Lose! Paper beats Rock")
+    const record = document.createElement("div");
+    record.textContent = "You Lose! Paper beats Rock";
+    container.appendChild(record);  
     computerScore++
 
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    console.log ("You Win! Rock beats Scissors")
+    const record = document.createElement("div");
+    record.textContent ="You Win! Rock beats Scissors";
+    container.appendChild(record);  
     playerScore++
 
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-    console.log ("You Win! Paper beats Rock")
+    const record = document.createElement("div");
+    record.textContent ="You Win! Paper beats Rock";
+    container.appendChild(record);  
     playerScore++
 
     } else if (playerSelection=== "paper" && computerSelection === "paper") {
-    console.log ("You Tie! You both pick Paper")
+    const record = document.createElement("div");
+    record.textContent ="You Tie! You both pick Paper";
+    container.appendChild(record);  
 
     } else if (playerSelection=== "paper" && computerSelection === "scissors") {
-    console.log ("You Lose! Scissors beats Paper")
+    const record = document.createElement("div");
+    record.textContent ="You Lose! Scissors beats Paper";
+    container.appendChild(record);  
     computerScore++
 
 
     } else if (playerSelection=== "scissors" && computerSelection === "rock") {
-    console.log ("You Lose! Rock beats Scissors")
+    const record = document.createElement("div");
+    record.textContent ="You Lose! Rock beats Scissors";
+    container.appendChild(record);  
     computerScore++
 
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    console.log ("You Win! Scissors beats Paper")
+    const record = document.createElement("div");
+    reocrd.textContent ="You Win! Scissors beats Paper";
+    container.appendChild(record);  
     playerScore++
 
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-    console.log ("You Tie! You both pick Scissors")
+    const record = document.createElement("div");
+    record.textContent ="You Tie! You both pick Scissors";
+    container.appendChild(record);  
     }
 }
 
 
-function game () {
+
+/*function game () {
     for (let i = 0; i < 5; i++) {
         let playerSelection = (prompt("Enter your choice").toLowerCase());
         let computerSelection = getComputerChoice();
@@ -72,4 +124,5 @@ function game () {
     }
 }
 
-game ()
+game ()*/
+
